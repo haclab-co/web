@@ -1,0 +1,89 @@
+.main {
+	height: 50vh;
+	height: calc(var(--vh, 1vh) * 50);
+	background-color: $white;
+	.page-bg {
+		transform: translate(0px, 0vh);
+		position: absolute;
+		color: #ffcdd2;
+		animation: blinkingText 3s infinite;
+		font-size: 150px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		opacity: .1;
+		width: 100vw;
+		height: 50vh;
+		height: calc(var(--vh, 1vh) * 50);
+		@include media('<=tablet') {
+			font-size: 100px;
+		}
+		@include media('<=phone') {
+			font-size: 60px;
+		}
+		@keyframes blinkingText {
+			0% {
+				opacity: .1;
+			}
+			40% {
+				opacity: .20;
+			}
+			50% {
+				opacity: .25;
+			}
+			60% {
+				opacity: .20;
+			}
+			100% {
+				opacity: .1;
+			}
+		}
+	}
+	.row {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		@include media('<=phone') {
+			flex-direction: column;
+		}
+		.left {
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			flex: 4;
+			h2 {
+				font-size: 1.7rem;
+				line-height: 2.3rem;
+				font-weight: 700;
+				z-index: 10;
+				color: $white;
+				mix-blend-mode: difference;
+
+				@include media('<=tablet') {
+					font-size: 1rem;
+					line-height: 2rem;
+				}
+				@include media('<=phone') {
+					margin-top: 150px;
+					font-size: 1rem;
+					line-height: 2.2rem;
+				}
+				.line {
+					margin-bottom: 8px;
+					height: 40px;
+					position: relative;
+					overflow: hidden;
+					@include media('<=tablet') {
+						height: 40px;
+					}
+					@include media('<=phone') {
+						height: 32px;
+					}
+					span {
+						position: absolute;
+					}
+				}
+			}
+		}
+	}
+}
