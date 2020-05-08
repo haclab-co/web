@@ -174,40 +174,6 @@
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
-    <script>
-      fetch('https://corona-virus-stats.herokuapp.com/api/v1/cases/general-stats')
-        .then((response) => {
-          if (!response.ok) {
-            console.error(response)
-          }
-          return response.json();
-        }).then(res => {
-          const { data } = res
-          console.log("data", data)
-
-          let htmlInject = '<div style="position: fixed;bottom: 15px;left: 15px;width: 230px;padding:15px;color: #ffffff;font-size: 14px;line-height: 18px;text-align: center;z-index: 100;cursor: pointer;background: #0a0a0a;">'
-          htmlInject += '<div id="world"><h4>Corona virus updates</h4> Last updated <em style=""> ' + moment(Date(data.last_update)).fromNow() + ' </em><hr /><h5>Worldwide Stats</h5><br /><span style="color:#03A9F4;">Confirmed :</strong> ' + data.total_cases + '</span><br /><span style="color:#FFEB3B;"><strong>Currently infected :</strong> ' + data.currently_infected + '</span><br /><span style="color:#8BC34A;"><strong>Recovery :</strong> ' + data.recovery_cases + '</span><br /><span style="color:#FF0000;"><strong>Dead :</strong> ' + data.death_cases + '</span></div>'
-          htmlInject += '</div>'
-
-          document.body.innerHTML += htmlInject
-
-        })
-
-
-
-        (function (w, d, t, u, n, a, m) {
-        w['MauticTrackingObject'] = n;
-          w[n] = w[n] || function () { (w[n].q = w[n].q || []).push(arguments) }, a = d.createElement(t),
-            m = d.getElementsByTagName(t)[0]; a.async = 1; a.src = u; m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'http://hytechlab.com/mautic/mtc.js', 'mt');
-
-      mt('send', 'pageview');
-    </script>
-    
-    
-    
-    
-    
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-148952509-1"></script>
     <script>
