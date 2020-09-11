@@ -118,7 +118,7 @@ const Header = ({ history, dimensions }) => {
             })
 
         }
-    }, [menuState.menuOpened, dimensions])
+    }, [menuState, dimensions,history])
 
     return (
         <div className="header">

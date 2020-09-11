@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Page from '../Components/Page'
 import { GoMail } from 'react-icons/go'
 import gsap from 'gsap'
@@ -54,8 +54,6 @@ const Contact = () => {
 
         };
     }, []);
-
-    const [nameMess, setNameMess] = useState(false)
 
     return (
         <Page>

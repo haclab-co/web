@@ -38,10 +38,7 @@ const servises = [
 const tl = gsap.timeline();
 export default function Services() {
 
-    const [selectedService, setSelectedService] = useState(0)
-
     useEffect(() => {
-        console.log(selectedService);
         tl.to('.selected-service', {
             duration: 1,
             y: '100vh',
@@ -94,8 +91,7 @@ export default function Services() {
   
           setAni(true);
         } else {
-          animation
-            .to('.services',0.3,{
+            animation.to('.services',0.3,{
                 height: '50vh',
                 y:'0vh',
             ease: Expo.easeOut
@@ -140,7 +136,7 @@ export default function Services() {
                 <div className='row parent'>
                     {
                         servises.map(item =>
-                            <div onClick={()=>animate(item.id)} className={selectedService === item.id ? 'selected-service service child'+item.id : 'service child'+item.id} key={item.id}>
+                            <div onClick={()=>animate(item.id)} className={'service child'+item.id} key={item.id}>
                                 <div className='service-details'>
                                     <span>{item.subtitle}</span>
                                     <h2>{item.title}</h2>

@@ -61,6 +61,8 @@ const Shop = () => {
         },
     ]
 
+    console.log(packages);
+
     return (
         <Page>
             <div className="shop">
