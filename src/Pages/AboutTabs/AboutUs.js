@@ -37,7 +37,7 @@ const AboutUs = () => {
             </div>
             <div className='right item'>
                 <span className='text'>
-                    Hytech Lab. is a Kampala Uganda based Digital Solutions firm delivering high quality, cost effective, reliable result-oriented web, apps, e-commerce and many other digital solutions on time for a local & global clientele.
+                    Haclab. is a Kampala Uganda based Digital Solutions firm delivering high quality, cost effective, reliable result-oriented web, apps, e-commerce and many other digital solutions on time for a local & global clientele.
                             <br /> <br />Professionalism, Skill and Expertise are the tools we use to make the web work for your business bringing in maximum return on your investment in shortest possible time.
                             <br /> <br />
                             As a trusted partner with wide-ranging service capabilities, we help number of people country to grow their business and maximize profit. <br /><br />Our main areas of key business are Web Development in Uganda, Rich Application Development, Software Application Development, Custom Website Designing, PHP Development, Open Source Customization, Website/Software/Application Maintenance, E-Commerce Solutions, Website Optimization & Promotion and more.

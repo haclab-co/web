@@ -125,16 +125,16 @@ const Header = ({ history, dimensions }) => {
             <div className="container">
                 <div className="row v-center space-between">
                     <div className="logo">
-                        <NavLink to='/'><img alt='logo' src={require('../assets/logo-1.png')} /></NavLink>
+                        <NavLink to='/'>HACLAB</NavLink>
 
                     </div>
                     <div
                         onClick={() => toggleMenu()}
                         className='nav-toggle'>
                         <div className="hamburger-menu">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+                            <span className="hamburger-dash"></span>
+                            <span className="hamburger-dash"></span>
+                            <span className="hamburger-dash"></span>
                         </div>
                         <div
                             onClick={() => toggleMenu()}

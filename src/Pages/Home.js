@@ -42,7 +42,7 @@ const homeAnimation = (completeAnimation) => {
                 amount: .4
             }
         }).from('.site-icons .icon', .001, {
-            y: 55,
+            y: 80,
             ease: 'power4.out',
             delay: 0,
             skewY: 7,
