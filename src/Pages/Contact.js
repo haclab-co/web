@@ -1,40 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Page from '../Components/Page'
 import { GoMail } from 'react-icons/go'
 import gsap from 'gsap'
 import SocialLinks from '../Components/SocialLinks'
+import emailjs from 'emailjs-com';
+import { message, Spin } from 'antd'
 
-const mailjet = require ('node-mailjet')
-.connect('5f7b8405146dd65efb7e9b907c2de04e', 'f85b16209494eb74f7a4112d69899484')
-const request = mailjet
-.post("send", {'version': 'v3.1'})
-.request({
-  "Messages":[
-    {
-      "From": {
-        "Email": "haclab@outlook.com",
-        "Name": "Haclab"
-      },
-      "To": [
-        {
-          "Email": "mudalit@gmail.com",
-          "Name": "Haclab"
-        }
-      ],
-      "Subject": "Greetings from Mailjet.",
-      "TextPart": "My first Mailjet email",
-      "HTMLPart": "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
-      "CustomID": "AppGettingStartedTest"
-    }
-  ]
-})
-request
-  .then((result) => {
-    console.log('success',result.body)
-  })
-  .catch((err) => {
-    console.log('failed',err.statusCode)
-  })
 
 const tl = gsap.timeline()
 const Contact = () => {
@@ -55,6 +26,36 @@ const Contact = () => {
         };
     }, []);
 
+    const key = 'updatable';
+
+    const [values, setValues] = useState({name:'',email:'',message:''})
+    const [sending, setSending] = useState(false)
+    const sendEmail = (e) =>{
+      e.preventDefault()
+      message.loading({ content: 'Sending your message...', key });
+      setSending(true)
+
+      console.log(values);
+
+      emailjs.send("service_nhczqca","template_baaamst",{
+        from_name: "Contact form on company site",
+        name: values.name,
+        email:values.email,
+        message: values.message,
+        reply_to: values.email,
+        },'user_6kdiE6yD7KqCXhOIaXEKv')
+        .then(done=>{
+          setSending(false)
+          setValues({name:'',email:'',message:''})
+          done.status === 200?message.success({ content: 'Message sent successfully we will get back to you in a shot while', key, duration: 5 }):message.error({ content: 'Sorry, something went wrong. Please try again!', key, duration: 5 })
+        })
+    }
+
+    const handleChange = e =>{
+      setValues({...values, [e.target.name]:e.target.value})
+    }
+
+    
     return (
         <Page>
             <div className="contact">
@@ -73,25 +74,28 @@ const Contact = () => {
                         Got a project?
                     </p>
                 </div>
+                
                 <div className='form'>
-                    <form>
+                  <Spin tip="Sending message..." spinning={sending}>
+                    <form onSubmit={sendEmail}>
                         <div className="element">
                             <label>Why don't we start with your name?</label>
-                            <input className='name' placeholder='Type your name here' />
+                            <input onChange={handleChange} name={'name'} value={values.name} className='name' placeholder='Type your name here' />
                             <div  className='error-text'>Who are you?</div>
                         </div>
                         <div className="element">
                             <label>E-mail Address</label>
-                            <input placeholder='E-mail Address here' />
+                            <input onChange={handleChange}name={'email'} value={values.email} placeholder='E-mail Address here' />
                             <div className='error-text'>Need to reach you somehow</div>
                         </div>
                         <div className="element">
                             <label>What's on your mind? </label>
-                            <textarea placeholder='Message here' />
+                            <textarea onChange={handleChange}name={'message'} value={values.message} placeholder='Message here' />
                             <div className='error-text'>How may we help?</div>
                         </div>
-                        <button disabled='true'> <GoMail className='icon' /> Send</button>
+                        <button type='submit' > <GoMail className='icon' /> Send</button>
                     </form>
+                </Spin>
                 </div>
                 <div className='links'>
                     <p>

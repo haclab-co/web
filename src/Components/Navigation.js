@@ -37,6 +37,9 @@ const Navigation = () => {
                             <ul className="nav-info">
                                 <li className='nav-info-label'>Email</li>
                                 <li>
+                                info@haclab.net
+                                </li>
+                                <li>
                                     <NavLink to='/contact'>
                                         Get in touch
                                 </NavLink>

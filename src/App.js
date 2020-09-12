@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import "./styles/App.scss";
 import Header from "./Components/Header";
 import gsap from "gsap";
 import { Route, Switch } from "react-router-dom";
 import Navigation from "./Components/Navigation";
-
 //pages
 import Home from "./Pages/Home";
 import About from "./Pages/About";

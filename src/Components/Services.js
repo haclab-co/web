@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { ReactComponent as CaseNext } from '../assets/arrow-right.svg'
 import { ReactComponent as CasePrev } from '../assets/arrow-left.svg'
-import gsap,{Expo,TimelineLite} from 'gsap';
+import gsap, { Expo, TimelineLite } from 'gsap';
+import { Card, Carousel } from 'antd';
 
 
 const servises = [
@@ -62,66 +63,97 @@ export default function Services() {
     const animate = (id) => {
         var animation = new TimelineLite();
         if (!ani) {
-          animation 
-        .to('.main',0.3,{
-            y:'-50vh',
-            ease: Expo.easeOut
-        })    
-        .to('.services',0.3,{
-            height: '100vh',
-            y:'-50vh',
-            delay:-0.3
-        })
-        
-        .to(`.child${id}>.service-details`, 1.2, {
-                zIndex:50,
-                height: "100vh",
-                width:'25vw',
-                ease: Expo.easeOut
-              })
-              .to(`.service:not(.child${id})`,1.2,{
-                height: "0vh",
-                width:'0vw',
-                opacity:'0',
-                delay:-1.2,
-              })
-              .to('.hamburger-dash,.logo>a',0.8,{color:'#ffffff'})
-              .to('.hamburger-dash',0.8,{backgroundColor:'#ffffff',delay:-0.8})
-              
-  
-          setAni(true);
+            animation
+                .to('.main', 1.2, {
+                    y: '-50vh',
+                    ease: 'expo.inOut',
+                })
+                .to('.services', 1.2, {
+                    height: '100vh',
+                    y: '-50vh',
+                    delay: -1.2,
+                    ease: 'expo.inOut',
+                })
+                .to(`.child${id} .service-details`, 1.2, {
+                    zIndex: 50,
+                    height: "100vh",
+                    width: '100vw',
+                    delay: -1.2,
+                    ease: 'expo.inOut',
+                })
+                .to('.service-title', 1.2, {
+                    width: '25vw',
+                    delay: -1.2,
+                    ease: 'expo.inOut',
+                })
+                .to(`.child${id} .service-properties`, 1.2, {
+                    width: '75vw',
+                    display: 'block',
+                    opacity: 1,
+                    delay: -1.2,
+                    ease: 'expo.inOut',
+                })
+                .to(`.service:not(.child${id})`, 1.2, {
+                    width: '0%',
+                    opacity: '0',
+                    delay: -1.2,
+                    ease: 'expo.inOut',
+                })
+                .to('.logo>a,.hamburger-menu>span', 1.2, { color: '#ffffff', delay: -1.2, ease: 'expo.inOut', })
+                .to('.hamburger-dash', 1.2, { backgroundColor: '#ffffff', delay: -1.2, ease: 'expo.inOut', })
+                .to('.main', 1.2, {
+                    y: '50vh'
+                })
+
+            setAni(true);
         } else {
-            animation.to('.services',0.3,{
+            animation.to('.services', 1.2, {
                 height: '50vh',
-                y:'0vh',
-            ease: Expo.easeOut
-            })     .to('.main',0.3,{
-                display:'block',
-                y:'0vh',
-                delay:-0.3,
-                ease: Expo.easeOut
-            }) 
-            
-          .to(`.child${id} .service-details`, 1.2, {
-           
-            width: '25vw',
-            height: '100%',
-            zIndex:6,
-            ease: Expo.easeOut
-          })
-          .to(`.service:not(.child${id})`,1.2,{
-            height: "100%",
-            width:'100%',
-            opacity:'1',
-            delay:-1.2,
-            ease: Expo.easeOut
-          })
-          .to('.logo>a,.hamburger-menu>span',0.8,{color:'#000000'})
-          .to('.hamburger-dash',0.8,{backgroundColor:'#000000',delay:-0.8})
-          
-          setAni(false);
+                y: '0vh',
+                ease: 'expo.inOut',
+            }).to('.main', 1.2, {
+                y: '0vh',
+                delay: -1.2,
+                ease: 'expo.inOut',
+            })
+
+                .to(`.service:not(.child${id})`, 1.2, {
+                    width: '100%',
+                    opacity: '1',
+                    delay: -1.2,
+                    ease: 'expo.inOut',
+                })
+                .to(`.child${id} .service-details`, 1.2, {
+                    width: '25vw',
+                    height: '100%',
+                    zIndex: 6,
+                    delay: -1.2,
+                    ease: 'expo.inOut',
+                })
+                .to('.service-title', 1.2, {
+                    width: '100%',
+                    delay: -1.2,
+                    ease: 'expo.inOut',
+                })
+                .to(`.child${id} .service-properties`, 1.2, {
+                    width: '0vw',
+                    opacity: 0,
+                    delay: -1.2,
+                    ease: 'expo.inOut',
+                })
+                .to('.logo>a,.hamburger-menu>span', 1.2, { color: '#000000', delay: -1.2 , ease: 'expo.inOut'})
+                .to('.hamburger-dash', 1.2, { backgroundColor: '#000000', delay: -1.2 , ease: 'expo.inOut'})
+
+            setAni(false);
         }
-      }
+    }
+    const contentStyle = {
+        height: '160px',
+        color: '#fff',
+        lineHeight: '160px',
+        textAlign: 'center',
+        background: '#364d79',
+      };
     return (
         <section className='services'>
             <div className='container-fluid'>
@@ -136,12 +168,32 @@ export default function Services() {
                 <div className='row parent'>
                     {
                         servises.map(item =>
-                            <div onClick={()=>animate(item.id)} className={'service child'+item.id} key={item.id}>
+                            <div  onClick={() =>animate(item.id)} className={'service child' + item.id} key={item.id}>
                                 <div className='service-details'>
-                                    <span>{item.subtitle}</span>
-                                    <h2>{item.title}</h2>
+                                    <div className='inner-details'>
+                                        <div className='service-title'>
+                                            <span>{item.subtitle}</span>
+                                            <h2>{item.title}</h2>
+                                        </div>
+                                        <div className='service-properties'>
+                                        <Carousel autoplay>
+                                            <div>
+                                            <h3 style={contentStyle}>1</h3>
+                                            </div>
+                                            <div>
+                                            <h3 style={contentStyle}>2</h3>
+                                            </div>
+                                            <div>
+                                            <h3 style={contentStyle}>3</h3>
+                                            </div>
+                                            <div>
+                                            <h3 style={contentStyle}>4</h3>
+                                            </div>
+                                        </Carousel>
+                                        </div>
                                     </div>
-                                
+                                </div>
+
                                 <div className='service-image'>
                                     <img src={require(`../assets/${item.img}.jpg`)}
                                         alt={item.title} />

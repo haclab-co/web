@@ -62,6 +62,17 @@
 				@include media('<=tablet') {
 					padding: 16px;
 				}
+				.inner-details{
+					display: flex;
+					.service-properties{
+						width: 0vw;
+						display: none;
+						opacity: 0;
+						background-color: rgba(0, 0, 0, .4);
+						padding: 20px;
+						border-radius: 10px;
+					}
+				}
 				span {
 					margin-top: 156px;
 					font-size: 1rem;

@@ -27,9 +27,9 @@ const AboutUs = () => {
         <div className='aboutUs'>
             <div className='left item'>
                 <div className="image">
-                    <img alt='about' src={require('../../assets/about.svg')} />
+                    <img alt='about' src={require('../../assets/bulb.jpg')} />
                 </div>
-                <div className='btn-row'>
+                <div className='btn-row' style={{marginTop:'-50px'}}>
                     <NavLink to='/contact'>
                         Get in touch <FaPhone />
                     </NavLink>
