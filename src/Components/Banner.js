@@ -2,6 +2,7 @@ import React from 'react'
 import { ReactComponent as RightArrow } from '../assets/arrow-right.svg'
 import { NavLink } from 'react-router-dom'
 import SocialLinks from './SocialLinks'
+import { ArrowRightOutlined } from '@ant-design/icons'
 export default () => {
     return (
         <section className='main'>
@@ -20,7 +21,7 @@ export default () => {
                         </h2>
                         <div className='btn-row'>
                             <NavLink to='/about'>
-                                More about us <RightArrow />
+                                More about us <ArrowRightOutlined />
                             </NavLink>
                         </div>
                     </div>

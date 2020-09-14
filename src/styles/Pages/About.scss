@@ -63,6 +63,10 @@
 
 		.aboutUs {
 			display: flex;
+
+			padding: 50px;
+			flex: 1;
+			align-self: center;
 			.left {
 				flex: 1;
 				align-self: center;
