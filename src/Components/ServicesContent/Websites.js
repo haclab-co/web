@@ -1,6 +1,7 @@
 import React from 'react'
-import {Descriptions,Badge} from 'antd';
+import {Descriptions,Badge, Tag} from 'antd';
 import Template from './Template';
+import { CheckCircleOutlined } from '@ant-design/icons';
 
 
 const Websites = (props) => {
@@ -25,6 +26,17 @@ const Websites = (props) => {
                 great deal of importance on ensuring your website needs are 
                 met to your satisfaction and in an innovative and engaging way. 
                 </p>
+                <center style={{marginBottom:'20px'}}>
+        <Tag icon={<CheckCircleOutlined />} color="#33aa33">
+        Modern
+      </Tag>
+      <Tag icon={<CheckCircleOutlined />} color="#33aa33">
+      Responsive
+      </Tag>
+      <Tag icon={<CheckCircleOutlined />} color="#33aa33">
+      Optimized
+      </Tag>
+        </center>
         </>,
         Right:()=><Descriptions
         title="Pricing"

@@ -19,12 +19,22 @@ export default () => {
                             </div>
 
                         </h2>
-                        <div className='btn-row'>
+                        {/* <div className='btn-row'>
                             <NavLink to='/about'>
-                                More about us <ArrowRightOutlined />
+                                More about us
                             </NavLink>
-                        </div>
+                        </div> */}
+                        <address>
+                        <h3>+256 781 343 882</h3>
+                        <h4>info@haclab.net</h4>
+                    </address>
                     </div>
+                    {/* <div className='contact-details'>
+                    <address>
+                        <h3>+256 781 343 882</h3>
+                        <h4>info@haclab.net</h4>
+                    </address>
+                    </div> */}
                     <SocialLinks />
                 </div>
             </div>

@@ -18,6 +18,7 @@ html {
 	z-index: 2;
 	transform: translateY(0);
 	position: relative;
+	overflow:'hidden';
 }
 
 .container {
@@ -147,9 +148,10 @@ html {
 }
 
 .page {
-	height: 100vh;
+	height: calc(var(--vh, 1px)*100);
 	width: 100%;
 	background: transparent;
+	overflow: hidden;
 	// background: url('../assets/bg.jpg');
 	// background-size: cover;
 	.row {
@@ -161,8 +163,6 @@ html {
 	width: 256px;
 	position: relative;
 	z-index: 2;
-
-	padding-bottom: 30px;
 	a {
 		font-size: 1.2rem;
 		color: $red;
@@ -276,8 +276,30 @@ html {
 .page-content {
 	z-index: 5;
 }
+
+// .contact-details{
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: flex-end;
+// 	// justify-items: flex-end;
+// 	align-items: center;
+// 	align-content: center;
+// 	address{
+// 		text-align:center ;
+// 		padding: 0;
+// 		margin: 0;
+// 		h3{
+// 			font-size: 1rem;
+// 			line-height: 1.2rem;
+// 		}
+// 		h4{
+// 			font-size: 1.2rem;
+// 			line-height: 1rem;
+// 		}
+// 	}
+	
+// }
 .site-icons {
-	flex: 1;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-evenly;
@@ -297,6 +319,7 @@ html {
 		}
 	}
 }
+
 .form {
 	grid-column: 7/-2;
 	grid-row: 2/-2;

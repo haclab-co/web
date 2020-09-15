@@ -15,7 +15,8 @@ const Template = (props) => {
 
 const {images,TheText,Right,flipped,setFliped,packagePlan,setPackagePlan,handleFlip} = props
 
-  
+    flipped && alert('flip-card flip-card--flipped')
+
     const classVariant = flipped ? "flip-card flip-card--flipped" : "flip-card";
   
     const contentStyle = {

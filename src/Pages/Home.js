@@ -41,7 +41,7 @@ const homeAnimation = (completeAnimation) => {
             stagger: {
                 amount: .4
             }
-        }).from('.site-icons .icon', .001, {
+        }).from('.site-icons .icon, address *', .001, {
             y: 80,
             ease: 'power4.out',
             delay: 0,
@@ -67,7 +67,7 @@ export default (props) => {
     }, [])
 
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{height: "calc(var(--vh, 1px)*100)"}}>
             {
                 !animationComplete && <IntroOverlay />
             }

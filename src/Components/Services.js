@@ -20,7 +20,7 @@ const servises = [
     {
         id: 1,
         subtitle: 'Professional Web Development',
-        title: 'Overcome geographical limitations in your business',
+        title: 'A professionally crafted website helps you overcome geographical limitations in your business and increase your exposure to new customers',
         img: 'host',
         Icon:MdWeb,
         Details:Websites
@@ -29,7 +29,7 @@ const servises = [
     {
         id: 2,
         subtitle: 'Custom Software Development',
-        title: 'improve business efficiency and effectiveness',
+        title: 'Improve business efficiency and effectiveness with a custom made software that perfectly fits your needs and scales with your business',
         img: 'dev',
         Icon:MdDesktopWindows,
         Details:Software
@@ -38,7 +38,7 @@ const servises = [
     {
         id: 3,
         subtitle: 'Mobile app Development',
-        title: 'We bring your product to life',
+        title: 'Choosing to compliment your business with a well crafted mobile application is a good idea now more than ever, Let us bring your product(s) to life',
         img: 'database',
         Icon:MdDeveloperMode,
         Details:Mobile
@@ -47,7 +47,7 @@ const servises = [
     {
         id: 4,
         subtitle: 'Domain Names, Web Hosting & SEO',
-        title: 'Exposing your Business to new potential customers',
+        title: 'We offer domain name registration, Super fast and reliable web hosting and up-to-date Search Engine Optimization exposing you to new potential customers',
         img: 'pay',
         Icon:FaServer,
         Details:Hosting
@@ -98,32 +98,34 @@ export default function Services() {
                     height: "100vh",
                     width: '100vw',
                     delay: -1.2,
+                    cursor:'default',
                     overflow:'hidden',
                     ease: 'expo.inOut',
                 })
-                .to('.service-title', 1.2, {
-                    width: '25vw',
-                    delay: -1.2,
-                    ease: 'expo.inOut',
-                })
+                
                 .to(`.child${id} .service-properties`, 1.2, {
                     width: '75vw',
+                    height:'auto',
                     display: 'block',
                     opacity: 1,
                     delay: -1.2,
                     ease: 'expo.inOut',
+                }).to('.service-title', 1.2, {
+                    width: '25vw',
+                    delay: -1.2,
+                    ease: 'expo.inOut',
                 })
                 .to(`.service:not(.child${id})`, 1.2, {
-                    width: '0%',
+                    width: '0vw',
                     opacity: '0',
                     delay: -1.2,
                     ease: 'expo.inOut',
                 })
                 .to('.logo>a,.hamburger-menu>span', 1.2, { color: '#ffffff', delay: -1.2, ease: 'expo.inOut', })
                 .to('.hamburger-dash', 1.2, { backgroundColor: '#ffffff', delay: -1.2, ease: 'expo.inOut', })
-                .to('.main', 1.2, {
-                    y: '50vh'
-                })
+                // .to('.main', 1.2, {
+                //     y: '50vh'
+                // })
                 .to('.prev',0.3,{
                     x:'-200px',
                     delay:-1.2
@@ -140,27 +142,35 @@ export default function Services() {
                     opacity:1,
                     delay:-1,
                     ease: 'expo.inOut',
+                }).from(`.child${id} .service-properties *`, 1.2, {
+                    scale: 0,
+                    delay:-1,
                 })
+                    // .to(`.child .service-details,.App,.services`,1.2,{
+                    //     overflow:'hidden'
+                    // })
 
 
             setAni(true);
         } else {
             
-            animation.to('.close-details',0.3,{
+            animation
+            .to('.close-details',0.3,{
                 opacity:0,
                 ease: 'expo.inOut',
             }).to('.services', 1.2, {
                 height: '50vh',
                 y: '0vh',
                 ease: 'expo.inOut',
-            }).to('.main', 1.2, {
+            })
+            .to('.main', 1.2, {
                 y: '0vh',
                 delay: -1.2,
                 ease: 'expo.inOut',
             })
 
                 .to(`.service:not(.child${id})`, 1.2, {
-                    width: '100%',
+                    width: '100vw',
                     opacity: '1',
                     delay: -1.2,
                     ease: 'expo.inOut',
@@ -169,6 +179,7 @@ export default function Services() {
                     width: '25vw',
                     height: '100%',
                     zIndex: 6,
+                    cursor:'pointer',
                     delay: -1.2,
                     ease: 'expo.inOut',
                 })
@@ -181,6 +192,7 @@ export default function Services() {
                     width: '0vw',
                     height:'0vh',
                     opacity: 0,
+                    display:'none',
                     delay: -1.2,
                     ease: 'expo.inOut',
                 })
@@ -198,6 +210,7 @@ export default function Services() {
                     y:'0px',
                     delay:-0.3
                 })
+                
             setAni(false);
         }
     }
