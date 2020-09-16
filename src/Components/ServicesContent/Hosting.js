@@ -6,7 +6,7 @@ import { CheckCircleOutlined } from '@ant-design/icons';
 
 const Hosting    = (props) => {
 
-    const {flipped,setFliped,packagePlan,setPackagePlan,handleFlip} = props
+    const {flipped,setFliped,packagePlan,setPackagePlan,handleFlip,selectedService} = props
 
     const content = {
         images:[],
@@ -73,9 +73,7 @@ const Hosting    = (props) => {
         </Descriptions>
     }
 
-    return (
-       <Template {...content} {...props} />
-    )
+    return selectedService && <Template {...content} {...props} /> 
 }
 
 export default Hosting

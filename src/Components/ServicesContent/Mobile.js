@@ -15,7 +15,7 @@ import {
 
 const Mobile = (props) => {
 
-    const {flipped,setFliped,packagePlan,setPackagePlan,handleFlip} = props
+    const {flipped,setFliped,packagePlan,setPackagePlan,handleFlip,selectedService} = props
 
     const content = {
         images:[],
@@ -78,7 +78,7 @@ const Mobile = (props) => {
         >
         <Descriptions.Item>
         <Row>
-        {steps.map((step,i)=><Col  span={12}><Comment
+        {steps.map((step,i)=><Col key={i}   span={12}><Comment
       author={<h5>{step.title}</h5>}
       avatar={
         <Avatar style={{ backgroundColor: "#ff0000", verticalAlign: 'middle' }} size="large" gap={4}>
@@ -103,9 +103,7 @@ const Mobile = (props) => {
         }
     }
 
-    return (
-       <Template {...content} {...props} />
-    )
+    return selectedService && <Template {...content} {...props} /> 
 }
 
 export default Mobile

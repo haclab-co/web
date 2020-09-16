@@ -58,6 +58,10 @@ const servises = [
 const tl = gsap.timeline();
 export default function Services() {
 
+    const [flipped, setFliped] = useState(false);
+
+    const [packagePlan, setPackagePlan] = useState('')
+    const [selectedService, setSelectedService] = useState(null)
     useEffect(() => {
         tl.to('.selected-service', {
             duration: 1,
@@ -215,9 +219,7 @@ export default function Services() {
         }
     }
 
-    const [flipped, setFliped] = useState(false);
 
-    const [packagePlan, setPackagePlan] = useState('')
     const handleFlip = () => {
       flipped ? setFliped(false) : setFliped(true);
     };
@@ -242,9 +244,9 @@ export default function Services() {
                 <div className='row parent'>
                     {
                         servises.map(item =>
-                            <div onClick={() => !ani && animate(item.id)} className={'service child' + item.id} key={item.id}>
+                            <div key={item.id} onClick={() => {if(!ani){setSelectedService(item.id);animate(item.id);}}} className={'service child' + item.id} key={item.id}>
                                 <div className='service-details'>
-                                <div onClick={() => ani && animate(item.id)} className="close-details">
+                                <div onClick={() => {if(ani){animate(item.id);setTimeout(()=>setSelectedService(null),1200)}}} className="close-details">
                                 <center>
                                     <p className='text'><MdClose/> Close</p>
                                 </center>
@@ -255,8 +257,8 @@ export default function Services() {
                                             <span className="subtitle">{item.subtitle}</span>
                                             <h2 className="title">{item.title}</h2>
                                         </div>
-                                        <div className='service-properties'>
-                                        <item.Details flipped={flipped} setFliped={setFliped}packagePlan={packagePlan} setPackagePlan={setPackagePlan}handleFlip={handleFlip}/>
+                                            <div className='service-properties'>
+                                        {selectedService === item.id && <item.Details selectedService={selectedService} flipped={flipped} setFliped={setFliped}packagePlan={packagePlan} setPackagePlan={setPackagePlan}handleFlip={handleFlip}/>}
                                         </div>
                                     </div>
                                 </div>

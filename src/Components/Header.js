@@ -125,8 +125,8 @@ const Header = ({ history, dimensions }) => {
             <div className="container">
                 <div className="row v-center space-between">
                     <div className="logo">
-                        <NavLink to='/'>HACLAB</NavLink>
-
+                        {/* <NavLink to='/'>HACLAB</NavLink> */}
+                        <NavLink to='/'><img alt='logo' src={require('../assets/logo-text.png')} /></NavLink>
                     </div>
                     <div
                         onClick={() => toggleMenu()}

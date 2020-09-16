@@ -6,7 +6,7 @@ import { CheckCircleOutlined } from '@ant-design/icons';
 
 const Websites = (props) => {
 
-    const {flipped,setFliped,packagePlan,setPackagePlan,handleFlip} = props
+    const {flipped,setFliped,packagePlan,setPackagePlan,handleFlip,selectedService} = props
 
     const content = {
         images:[],
@@ -77,7 +77,7 @@ const Websites = (props) => {
         <Badge color={"#ff0000"} text="Social media" /><br /> 
         <Badge color={"#ff0000"} text="Payments" /><br /> 
         <Badge color={"#ff0000"} text="Advanced support" /><br /> 
-        <Badge color={"#ff0000"} text="Custom requirements" /><br /> 
+        <Badge color={"#ff0000"} text="Free Consultation" /><br /> 
         <Badge color={"#ff0000"} text="E.T.C" /><br /> 
         <h3  style={{color:'#ff0000', paddingBottom:'10px',paddingTop:'10px'}}><strong>UGX 2,000,000/-</strong></h3>                                               
         <button  onClick={()=>{setPackagePlan('Web Development Enterprise package');handleFlip()}} className='buy'>Proceed </button>
@@ -85,9 +85,7 @@ const Websites = (props) => {
         </Descriptions>
     }
 
-    return (
-       <Template {...content} {...props} />
-    )
+    return selectedService && <Template {...content} {...props} /> 
 }
 
 export default Websites

@@ -8,6 +8,8 @@ import { IoMdCart } from 'react-icons/io';
 import { GoMail, GoArrowRight } from 'react-icons/go';
 import Text from 'antd/lib/typography/Text';
 import ContactForm from '../ContactForm';
+import userEvent from '@testing-library/user-event';
+import { CloseCircleTwoTone } from '@ant-design/icons';
 const { TabPane } = Tabs;
 
 
@@ -15,7 +17,9 @@ const Template = (props) => {
 
 const {images,TheText,Right,flipped,setFliped,packagePlan,setPackagePlan,handleFlip} = props
 
-    flipped && alert('flip-card flip-card--flipped')
+
+
+console.log('.........................rendered');
 
     const classVariant = flipped ? "flip-card flip-card--flipped" : "flip-card";
   
@@ -60,6 +64,7 @@ const {images,TheText,Right,flipped,setFliped,packagePlan,setPackagePlan,handleF
                 </p>
                 <div className='form'>
                {flipped && <ContactForm {...props}/>}
+               <div  onClick={handleFlip} className='close-flip'><CloseCircleTwoTone /> close </div>
                 </div>
             </div>
             </div>
