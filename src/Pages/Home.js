@@ -11,7 +11,6 @@ const homeAnimation = (completeAnimation) => {
     tl.from('.line span', 1, {
         y: 100,
         ease: 'power4.out',
-        delay: 1,
         skewY: 7,
         stagger: {
             amount: 0.3
@@ -19,7 +18,7 @@ const homeAnimation = (completeAnimation) => {
     }).to('.overlay-top', 1.6, {
         height: 0,
         ease: 'expo.inOut',
-        stagger: 0.4
+        stagger: 0.4,
     }).from('.header', 1, {
         y: -100,
         ease: 'power4.out',
@@ -42,7 +41,7 @@ const homeAnimation = (completeAnimation) => {
                 amount: .4
             }
         }).from('.site-icons .icon, address *', .001, {
-            y: 80,
+            y: 200,
             ease: 'power4.out',
             delay: 0,
             skewY: 7,
@@ -58,11 +57,7 @@ export default (props) => {
     const completeAnimation = () => setAnimationComplete(true)
     useEffect(() => {
         homeAnimation(completeAnimation)
-
-
-
         return () => {
-
         }
     }, [])
 

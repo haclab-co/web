@@ -209,6 +209,9 @@
   
   .child .service-details,.App,.services{
 	  overflow: hidden;
+	  @include media("<=phone") {
+		overflow: hidden;
+	}
   }
   .close-flip{
 	  position: absolute;

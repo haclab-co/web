@@ -39,40 +39,37 @@
 			}
 		}
 	}
-	.row {
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-end;
-		@include media('<=phone') {
-			flex-direction: column;
-		}
+	
 		.left {
 			display: flex;
 			flex-direction: column;
 			justify-content: flex-end;
 			flex: 4;
+			height: calc(var(--vh, 1vh) * 50);
+			
 			h2 {
-				font-size: 1.7rem;
+				font-size: 2rem;
 				line-height: 2.3rem;
 				font-weight: 700;
 				z-index: 10;
 				color: $white;
 				mix-blend-mode: difference;
-
 				@include media('<=tablet') {
 					font-size: 1rem;
 					line-height: 2rem;
 				}
 				@include media('<=phone') {
-					margin-top: 150px;
+					margin-top: 300px;
 					font-size: 1rem;
 					line-height: 2.2rem;
 				}
+		
 				.line {
 					margin-bottom: 8px;
 					height: 40px;
 					position: relative;
 					overflow: hidden;
+					
 					@include media('<=tablet') {
 						height: 40px;
 					}
@@ -84,23 +81,41 @@
 					}
 				}
 			}
-			address{
+			
+			.row {
+				display: flex;
+				height: calc(var(--vh, 1vh) * 10);
+				flex-direction: row;
+				justify-content: space-between;
+				@include media('<=phone') {
+					flex-direction: column;
+				height: calc(var(--vh, 1vh) * 15);
+				}
+			address {
 				display: flex;
 				flex-direction: row;
 				justify-content: start;
+				justify-self: flex-start;
 				align-items: flex-end;
+				@include media('<=phone') {
+					margin-bottom: 0px;
+				}
 				* {
 					color: $red;
-					padding: 10px;
-					font-size: 1rem;
-					border-radius: 50%;
+					padding: 0 10px;
+					font-size: .8rem;
+					margin-bottom: 20px;
+					border-radius: 10px;
 					border: 2px solid $white;
 					transition: .6s ease-in-out;
 					&:hover {
 						border-bottom: 2px solid $red;
 					}
+					@include media('<=phone') {
+						margin-bottom: 5px;
+					}
 				}
 			}
 		}
-	}
+}
 }
